@@ -33,6 +33,19 @@ deploy :
     acl : private
     local_dir: deploy
 
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+    bucket: fleelec-srpingboot2-build
+    key : freelec-springboot2-webservice.zip
+
+    bundle_type : zip
+    application : freelec-springboot2-webservice
+    deployment_group : freelec-springboot2-webservice-group
+
+    region: ap-northeast-2
+
 notifications:
   email:
     recipients:
